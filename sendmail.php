@@ -1,6 +1,6 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $to = "you@civara.us"; // Replace with your actual email
+    $to = "civara4u@civara.us"; // Replace with your actual email
     $subject = isset($_POST['newsletter']) ? "New Newsletter Signup" : "New Contact Form Submission";
 
     $email = strip_tags($_POST["email"]);
