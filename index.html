@@ -5,6 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Civara.us</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+  <script>
+    // Show message and redirect back after 4 seconds
+    function delayedRedirect() {
+      const messageDiv = document.createElement("div");
+      messageDiv.textContent = "Thanks reaching out to Civara.us. Have a safe and healthy day!!!";
+      messageDiv.style.background = "#d4f3ef";
+      messageDiv.style.color = "#333";
+      messageDiv.style.padding = "1em";
+      messageDiv.style.textAlign = "center";
+      messageDiv.style.fontWeight = "bold";
+      document.body.prepend(messageDiv);
+
+      setTimeout(function() {
+        window.history.back();
+      }, 4000);
+    }
+  </script>
   <style>
     body {
       margin: 0;
@@ -91,9 +108,7 @@
     </nav>
   </header>
 
-  <section class="hero">
-    <h2>Our Vision</h2>
-    <p>Civara.us is dedicated to building a compassionate and artistic society with the strongest defense in the Universe. Our mission includes housing the homeless and providing services they need to recover and thrive.</p>
+  <span style="color:red;"><mark>Site is under construction</mark></span><br>Civara.us is dedicated to building a compassionate and artistic society with the strongest defense in the Universe. Our mission includes housing the homeless and providing services they need to recover and thrive.</p>
   </section>
 
   <section id="about">
@@ -119,7 +134,7 @@
   <section id="contact">
     <div class="card">
       <h3>Contact Us</h3>
-      <form action="https://civara.us/sendmail.php" method="POST">
+      <form action="https://civara.us/sendmail.php" method="POST" onsubmit="delayedRedirect()">
         <input type="text" name="name" placeholder="Name" required />
         <input type="email" name="email" placeholder="Email" required />
         <textarea name="message" placeholder="Message" required></textarea>
@@ -131,7 +146,7 @@
   <section id="newsletter">
     <div class="card">
       <h3>Subscribe to Our Newsletter</h3>
-      <form action="https://civara.us/sendmail.php" method="POST">
+      <form action="https://civara.us/sendmail.php" method="POST" onsubmit="delayedRedirect()">
         <input type="email" name="email" placeholder="Your Email" required />
         <input type="hidden" name="newsletter" value="true">
         <button type="submit">Subscribe</button>
