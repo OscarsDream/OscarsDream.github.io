@@ -3,16 +3,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $to = "civara4u@civara.us";
     $subject = isset($_POST['newsletter']) ? "New Newsletter Signup" : "New Contact Form Submission";
 
-    $email = strip_tags($_POST["email"]);
+    $email = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
     $name = isset($_POST["name"]) ? strip_tags($_POST["name"]) : "N/A";
     $message = isset($_POST["message"]) ? strip_tags($_POST["message"]) : "N/A";
 
     $body = "Name: $name\nEmail: $email\nMessage:\n$message";
-    $headers = "From: $email";
+
+    $headers = "From: Civara <civara4u@civara.us>\r\n";
+    $headers .= "Reply-To: $email\r\n";
+    $headers .= "MIME-Version: 1.0\r\n";
+    $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
     mail($to, $subject, $body, $headers);
 
-    // Show confirmation page with redirect
     echo '<!DOCTYPE html>
     <html lang="en">
     <head>
