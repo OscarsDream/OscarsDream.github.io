@@ -1,0 +1,31 @@
+$TTL 3600
+@   IN  SOA dns1.namecheaphosting.com. hostmaster.civara.us. (
+        2025081901 ; Serial (YYYYMMDDnn)
+        3600       ; Refresh (1 hour)
+        1800       ; Retry (30 minutes)
+        1209600    ; Expire (14 days)
+        3600 )     ; Minimum TTL (1 hour)
+
+; --- Nameservers (replace if PremiumDNS gives different ones) ---
+@       IN  NS   dns1.premiumdns.net.
+@       IN  NS   dns2.premiumdns.net.
+
+; --- Website Hosting (cPanel server) ---
+@       IN  A    184.94.213.20
+www     IN  CNAME   @
+
+; --- Proton Mail MX Records ---
+@       IN  MX   10 mail.protonmail.ch.
+@       IN  MX   20 mailsec.protonmail.ch.
+
+; --- SPF Record ---
+@       IN  TXT  "v=spf1 include:_spf.protonmail.ch mx ~all"
+
+; --- DKIM Records (replace <unique> with values from Proton dashboard) ---
+protonmail._domainkey   IN  CNAME  protonmail.domainkey.<unique>.protonmail.ch.
+protonmail2._domainkey  IN  CNAME  protonmail2.domainkey.<unique>.protonmail.ch.
+protonmail3._domainkey  IN  CNAME  protonmail3.domainkey.<unique>.protonmail.ch.
+
+; --- DMARC Policy ---
+_dmarc  IN  TXT  "v=DMARC1; p=quarantine; rua=mailto:civara4u@protonmail.com"
+
