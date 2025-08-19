@@ -1,0 +1,5 @@
+SMTP server: 127.0.0.1
+SMTP port: 1025
+Username: <bridge-username>
+Password: <bridge-password>
+
