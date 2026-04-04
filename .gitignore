@@ -1,0 +1,59 @@
+# Composer
+/vendor/
+composer.lock
+
+# PHPMailer (if you're not tracking it in vendor)
+PHPMailer/
+
+# Environment & Configuration
+.env
+.env.local
+.env.*.local
+config.local.php
+*.local.php
+
+# Logs & Temporary Files
+*.log
+logs/
+tmp/
+temp/
+.cache/
+
+# IDE & Editor Files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.settings/
+.classpath
+*.sublime-project
+*.sublime-workspace
+
+# OS Specific Files
+.DS_Store          # macOS
+Thumbs.db          # Windows
+Desktop.ini        # Windows
+.Spotlight-V100    # macOS
+.Trashes           # macOS
+
+# Testing & Coverage
+coverage/
+phpunit.xml.local
+.phpunit.result.cache
+
+# Build & Deployment
+build/
+dist/
+*.bak
+*.backup
+
+# GitHub Pages (if applicable)
+# Uncomment if you don't want to track generated HTML
+# _site/
+# docs/
+
+# Misc
+*.sql~
+*.sql.bak
