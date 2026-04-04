@@ -1,6 +1,7 @@
 # Composer
 /vendor/
-composer.lock
+# Track composer.lock for production consistency 
+# composer.lock
 
 # PHPMailer (if you're not tracking it in vendor)
 PHPMailer/
