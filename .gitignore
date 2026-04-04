@@ -12,6 +12,9 @@ PHPMailer/
 .env.*.local
 config.local.php
 *.local.php
+### contains sensitive data (SMTP credentials, API keys,
+###   database passwords, Proton credentials), do not track it.
+config.php
 
 # Logs & Temporary Files
 *.log
