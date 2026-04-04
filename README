@@ -1,0 +1,27 @@
+Adding PHPMailer 7.01
+Checking Ruleset Main & Feature Branch Protection."
+
+Summary Checklist for Future Workflows
+git fetch (Check for updates)
+git pull --rebase (Sync locally)
+Make your changes.
+git add .
+git commit -m "message"
+git pull --rebase (Sync again before pushing, just in case)
+git push
+By following this routine, you'll rarely encounter the "non-fast-forward" error again! 🚀
+
+What Happens Now?
+Ruleset name:  "Main & Feature Branch Protection."
+Once this ruleset is active:
+Direct Pushes Blocked: If you try git push directly to that branch, GitHub will reject it with a message saying "Pushes to this branch are not permitted."
+Force Pushes Blocked: If you try git push --force, it will be blocked immediately.
+Workflow Change: You will now have to:
+Create a new branch (e.g., feature/my-fix).
+Push that new branch.
+Open a Pull Request to merge it into civara_phpmailer_proton_secure_bundle.zip.
+Merge the PR via the GitHub UI.
+Note: This rule applies to all branches that that start with "Civara_"
+
+
+ 
