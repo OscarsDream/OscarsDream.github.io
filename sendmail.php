@@ -1,43 +1,39 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $to = "civara4u@civara.us";
-    $subject = isset($_POST['newsletter']) ? "New Newsletter Signup" : "New Contact Form Submission";
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
-    $email = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
-    $name = isset($_POST["name"]) ? strip_tags($_POST["name"]) : "N/A";
-    $message = isset($_POST["message"]) ? strip_tags($_POST["message"]) : "N/A";
+require 'PHPMailer/src/Exception.php';
+require 'PHPMailer/src/PHPMailer.php';
+require 'PHPMailer/src/SMTP.php';
+require 'config.php';
 
-    $body = "Name: $name\nEmail: $email\nMessage:\n$message";
+$name = $_POST['name'] ?? '';
+$email = $_POST['email'] ?? '';
+$message = $_POST['message'] ?? '';
 
-    $headers = "From: Civara <civara4u@civara.us>\r\n";
-    $headers .= "Reply-To: $email\r\n";
-    $headers .= "MIME-Version: 1.0\r\n";
-    $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+$mail = new PHPMailer(true);
 
-    mail($to, $subject, $body, $headers);
+try {
+    $mail->isSMTP();
+    $mail->Host = 'mail.protonmail.ch';
+    $mail->SMTPAuth = true;
+    $mail->Username = $SMTP_USER;
+    $mail->Password = $SMTP_PASS;
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->Port = 587;
 
-    echo '<!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="refresh" content="4;URL=https://civara.us#contact">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Message Sent</title>
-      <style>
-        body {
-          font-family: sans-serif;
-          background: #fefcbf;
-          color: #333;
-          text-align: center;
-          padding: 5em 2em;
-        }
-      </style>
-    </head>
-    <body>
-      <h1>Thanks reaching out to Civara.us.</h1>
-      <p>Have a safe and healthy day!!!</p>
-      <p>You will be redirected shortly...</p>
-    </body>
-    </html>';
+    $mail->setFrom('civara4u@civara.us', 'Civara Contact');
+    $mail->addAddress('civara4u@civara.us');
+
+    if ($email) {
+        $mail->addReplyTo($email, $name ?: $email);
+    }
+
+    $mail->Subject = 'New Civara.us Contact';
+    $mail->Body = "Name: $name\nEmail: $email\n\n$message";
+
+    $mail->send();
+    echo 'OK';
+} catch (Exception $e) {
+    echo 'Mailer Error';
 }
-?>
