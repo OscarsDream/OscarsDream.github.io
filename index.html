@@ -106,19 +106,13 @@
       <a href="#about">About</a>
       <a href="#services">Services</a>
       <a href="#contact">Contact</a>
-      <!-- <a href="#donate">Donate</a> -->
     </nav>
   </header>
-
-  <!-- <span style="color:red;"><mark>Site is under construction</mark></span><br>Civara.us is dedicated to building a compassionate and artistic society with the strongest defense in the Universe. Our mission includes housing the homeless and providing services they need to recover and thrive.</p> 
-  </section> -->
 
   <section class="hero">
     <h2>Our Vision</h2>
     <p>Civara.us is dedicated to building a compassionate and artistic society with the strongest defense in the Universe. Our mission includes housing the houseless and providing services they need to recover and thrive.</p>
   </section>
-
-  <!-- <span style="color:red;"><mark>Site is under construction</mark></span><br> -->
 
   <section id="about">
     <div class="card">
@@ -143,7 +137,8 @@
   <section id="contact">
     <div class="card">
       <h3>Contact Us</h3>
-      <form action="https://civara.us/sendmail.php" method="POST" onsubmit="delayedRedirect()">
+      <!-- Changed action to local sendmail.php -->
+      <form action="sendmail.php" method="POST" onsubmit="delayedRedirect()">
         <input type="text" name="name" placeholder="Name" required />
         <input type="email" name="email" placeholder="Email" required />
         <textarea name="message" placeholder="Message" required></textarea>
@@ -155,7 +150,8 @@
   <section id="newsletter">
     <div class="card">
       <h3>Subscribe to Our Newsletter</h3>
-      <form action="https://civara.us/sendmail.php" method="POST" onsubmit="delayedRedirect()">
+      <!-- Changed action to local sendmail.php -->
+      <form action="sendmail.php" method="POST" onsubmit="delayedRedirect()">
         <input type="email" name="email" placeholder="Your Email" required />
         <input type="hidden" name="newsletter" value="true">
         <button type="submit">Subscribe</button>
@@ -163,23 +159,9 @@
     </div>
   </section>
 
-  <!-- <section>
-  <div class="card">
-    <h3>Upcoming Events</h3>
-    <p style="text-align:center; font-weight:bold; background:yellow; color:red; padding:1em;">Coming Soon</p>
-  </div>
-</section> -->
-
-  <!--  -->
-
-  <!--  -->
-
   <footer>
     <p>&copy; 2025 Civara.us | Based in Portland, Oregon</p>
     <div class="social">
-   <!--   <a href="#">Facebook</a>
-      <a href="#">Instagram</a>
-      <a href="#">Twitter</a> -->
     </div>
   </footer>
 </body>
