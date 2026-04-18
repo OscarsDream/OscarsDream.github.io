@@ -2,6 +2,8 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
+// This test sends an email to civaraus@yahoo.com
+
 // Ensure Composer autoloader is found
 if (file_exists(__DIR__ . '/vendor/autoload.php')) {
     require 'vendor/autoload.php';
