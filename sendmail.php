@@ -1,4 +1,8 @@
 <?php
+// ADD THESE TWO LINES FOR DEBUGGING
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -9,11 +13,12 @@ function showMessageAndRedirect($type, $message) {
     $redirectUrl = 'index.html'; // Redirects to the home page
     
     // Output HTML with meta refresh
+    //        <meta http-equiv='refresh' content='8;url=$redirectUrl'>
     echo "<div style='background:$bgColor;color:$textColor;padding:20px;text-align:center;font-family:sans-serif;'>
             <h2>" . ($type === 'success' ? 'Success!' : 'Error') . "</h2>
             <p>$message</p>
-            <p>You will be redirected to the home page shortly…</p>
-            <meta http-equiv='refresh' content='8;url=$redirectUrl'>
+            <p>You will be redirected to the home (index.html) page shortly…</p>
+            <meta http-equiv='refresh' content='8;url=index.html'>
          </div>";
     exit;
 }
