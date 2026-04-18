@@ -1,6 +1,20 @@
 <?php
+require 'vendor/autoload.php';
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+
+// redirection is working 4/18/2026
+// mail is not being flagged as spam 4/18/2026
+
+// This script will email civaraus@yahoo.com
+//  Ensure this environment variable is set where you started the Locl PHP server.
+//      export PROTON_SMTP_TOKEN=<SMTP token key>
+//  Start Local PHP server
+//      php -S localhost:8000
+//  Test this file
+//      http://localhost:8000/testPHPMailer.php
+
 
 // Ensure Composer autoloader is found
 if (file_exists(__DIR__ . '/vendor/autoload.php')) {

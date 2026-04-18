@@ -1,18 +1,6 @@
 {
-    "name": "ot/php-mailer",
-    "description": "Contact-form site using PHPMailer",
+    "name": "civara/site",
     "require": {
         "phpmailer/phpmailer": "^7.0"
-    },
-    "require-dev": {
-        "phpmailer/phpmailer": "^7.0"
-    },
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "ot",
-            "email": "ot.coyote@proton.me"
-        }
-    ],
-    "minimum-stability": "stable"
+    }
 }
